@@ -1,19 +1,20 @@
 Sub AddButton()
     Dim objSheet As Object
     Dim objButton As Object
-    Dim cellPosition As Range
     
     ' Reference to the Sheet1
     Set objSheet = ThisWorkbook.Sheets("Sheet1")
     
-    ' Specify the cell position
-    Set cellPosition = objSheet.Range("A1") ' Change "A1" to the cell you want to base the position on
-    
     ' Add a button to Sheet1
-    Set objButton = objSheet.Buttons.Add(cellPosition.Left, cellPosition.Top, 100, 40)
+    Set objButton = objSheet.Buttons.Add(100, 100, 100, 40)
     With objButton
         .Name = "btnTest"
         .Caption = "Click me"
         .OnAction = "TestSub" ' Assign the macro name to the button click event
     End With
+End Sub
+
+Sub TestSub()
+    MsgBox "Macro executed successfully!"
+    ' Your code here
 End Sub
